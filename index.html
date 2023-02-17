@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>Library</title>
+</head>
+<body>
+    <div class="sidebar">
+        <button id="collapse">Add New Book</button>
+        <div class="form">
+            <form action="" id="form">
+                <input type="text" name="bookname" id="bookname">
+                <input type="text" name="author" id="author">
+                <input type="number" name="pages" id="pages">
+                <select name="read" id="read">
+                    <option value="read">Read</option>
+                    <option value="unread">Not Read</option>
+                </select>
+                <button id="submit" tpye="submit">Submit</button>
+            </form>
+        </div>
+        <button id="removeButton">remove</button>
+    </div>
+    <div class="main">
+        
+    </div>
+    <script>
+        const ADD = document.querySelector('#collapse')
+        const content = document.querySelector('.form')
+        const form = document.querySelector('#form')
+        const submit = document.querySelector('#submit')
+        ADD.addEventListener('click', (e) => { 
+            event.preventDefault();
+            if (content.style.display === 'block') content.style.display = 'none'
+            else content.style.display = 'block';
+        })
+        // Grab Form Data
+        submit.addEventListener('click', (e) => {
+            event.preventDefault();
+            var formData = Object.fromEntries(new FormData(form).entries())
+            addBook(formData.bookname, formData.author, formData.pages, formData.read)
+            document.querySelector('#bookname').value = ''
+            document.querySelector('#author').value = ''
+            document.querySelector('#pages').value = ''
+        })
+        //remove books
+        let clear = document.querySelector('#removeButton')
+        clear.addEventListener('click', () => {
+            localStorage.clear()
+            loadBooks()
+        })
+    </script>
+</body>
+</html>

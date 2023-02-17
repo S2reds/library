@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Lucida Console", "Courier New", monospace;
+    border: 1px solid black;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr 8fr;
+    height: 100vh;
+    background-color: rgb(167, 167, 167);
+}
+
+.sidebar {
+    background-color: #34d399;
+}
+
+#collapse {
+    width: 75%;
+    margin-top: 40vh;
+    
+}
+
+#collapse:hover {
+    background-color: #6ee7b7;
+}
+
+.form {
+    display: none;
+    overflow: hidden;
+}
+
+.card {
+    background-color: red;
+}
+.main {
+    display: grid;
+    padding: 15px;
+    gap: 15px;
+    grid-template-columns: repeat(auto-fit, 250px);
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+.remove {
+    width: 100%;
+}
+.remove:hover {
+    background-color: black;
+}
+
+#removeButton {
+    width: 100%;
+}
