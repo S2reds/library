@@ -3,38 +3,101 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Lucida Console", "Courier New", monospace;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 body {
     display: grid;
-    grid-template-columns: 1fr 8fr;
+    grid-template-columns: 1fr 7fr;
     height: 100vh;
     background-color: rgb(167, 167, 167);
 }
 
 .sidebar {
     background-color: #34d399;
+    display: grid;
+    grid-template-rows: .5fr  .1fr .5fr 1fr;
+    justify-items: center;
+    align-items: center;
 }
 
-#collapse {
-    width: 75%;
-    margin-top: 40vh;
-    
+.sidebar > #sidemain { 
+    align-self:baseline;
 }
 
-#collapse:hover {
+.sidebar label, #submit {
+    width: 100%;
+    display: block;
+    font-size: .9rem;
+}
+#form input, #form select{
+    width: 80%;
+    border-radius: 10px;
+    height: 2vh;
+    border: 0;
+    padding: 0 1vw;
+}
+
+
+#submit {
+    margin-top: 20px;
+    border-radius: 10px;
+    height: 2vh;
+    border: 0;
+    padding: 0 1vw;
+    box-shadow: 0 15px 13px rgba(0, 0, 0, .2) ;
+}
+.collapse, .active {
+    width: 100%;
+    border-radius: 10px;
+    height: 3vh;
+    border: 0;
+    padding: 0 2vw;
+    box-shadow: 0 15px 13px rgba(0, 0, 0, .2) ;
+}
+
+
+.collapse:after {
+    content: '\02795'; 
+    font-size: 13px;
+    color: black;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2212";
+    font-size: 13px;
+    font-weight: bolder;
+    color: black;
+    float: right;
+    margin-left: 5px;
+}
+
+button:hover {
     background-color: #6ee7b7;
 }
 
 .form {
+    margin-top: 2vh;
     display: none;
     overflow: hidden;
+    animation: move 1s;
 }
 
 .card {
-    background-color: red;
+    background-color: #34d399;
+    border-radius: 15px;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    box-shadow: 0 15px 13px rgba(0, 0, 0, .2) ;
 }
+.card h3 {
+    font-style: italic;
+}
+
 .main {
     display: grid;
     padding: 15px;
@@ -44,12 +107,47 @@ body {
 }
 
 .remove {
-    width: 100%;
-}
-.remove:hover {
-    background-color: black;
+    width: 50%;
+    height: 40px;
+    border-radius: 15px;
+    border: 0;
+    box-shadow: 0 15px 13px rgba(0, 0, 0, .2) ;
 }
 
+.remove:hover {
+    background-color: #fecaca;
+}
+
+
 #removeButton {
-    width: 100%;
+    width: 80%;
+    align-self: baseline;
+    height: 3vh;
+    border-radius: 10px;
+    border: 0;
+    box-shadow: 0 15px 13px rgba(0, 0, 0, .2) ;
+    margin-top: 2vh;
+}
+
+input:valid, #read {
+    background-color: #96ecca;
+}
+
+input:invalid {
+    background-color: #fca5a5;
+    border: 3px solid #b91c1c;
+}
+
+@keyframes move {
+    0% {
+        transform: translateY(-30px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+button {
+    transition-duration: .5s;
 }
