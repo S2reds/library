@@ -94,6 +94,9 @@ button:hover {
     align-items: center;
     box-shadow: 0 15px 13px rgba(0, 0, 0, .2) ;
 }
+.card:hover {
+    animation: move 1s;
+}
 .card h3 {
     font-style: italic;
 }
@@ -150,4 +153,9 @@ input:invalid {
 
 button {
     transition-duration: .5s;
+}
+
+#err {
+    color: #b91c1c;
+    font-size: 1.2rem;
 }
