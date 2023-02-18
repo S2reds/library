@@ -32,7 +32,6 @@ function formControl() {
 }
 
 
-
 function loadBooks() {
     const bookList = JSON.parse(localStorage.getItem('books'));
     myLibrary = bookList;
@@ -53,12 +52,20 @@ function loadBooks() {
                              read: ${myLibrary[i].read}`
         
             let remove = document.createElement('button')
-            remove.textContent = 'remove'
+            remove.textContent = 'Remove'
             remove.classList.add('remove')
+            let update = document.createElement('button')
+            update.classList.add('update')
+            update.textContent = "Read it!";
+            update.value = i;
+            let holder = document.createElement('div')
+            holder.classList.add('holder')
+            holder.appendChild(remove)
+            holder.appendChild(update)
             remove.value = i;
             div.appendChild(h3)
             div.appendChild(p)
-            div.appendChild(remove)
+            div.appendChild(holder)
             main.appendChild(div)
     }
    
@@ -83,18 +90,26 @@ function createBook(book) {
                     read: ${book.read}`
 
     const remove = document.createElement('button')
-    remove.textContent = 'remove'
+    remove.textContent = 'Remove'
     remove.classList.add('remove')
     remove.value = myLibrary.length -1
+    const update = document.createElement('button')
+    update.textContent = 'Read it!'
+    update.classList.add('update')
+    update.value = myLibrary.length -1
+    const buttonHold = document.createElement('div')
+    buttonHold.classList.add('holder')
+    buttonHold.appendChild(remove)
+    buttonHold.appendChild(update)
     div.appendChild(h3)
     div.appendChild(p)
-    div.appendChild(remove)
+    div.appendChild(buttonHold)
     main.appendChild(div)
 }   
 
 window.addEventListener('click', (e) => {
+    // remove targeted book
     if (e.target.className === 'remove') {
-        console.log(e.target.value)
         const butt = document.querySelectorAll('.remove')
         butt.forEach(b => {           
             if (b.value === e.target.value) {
@@ -104,7 +119,19 @@ window.addEventListener('click', (e) => {
             }
             loadBooks()
         })
-     
+    }
+    // update read status
+    if (e.target.className === 'update') {
+        const update = document.querySelectorAll('.update')
+        update.forEach(b => {
+            if (b.value === e.target.value) {
+                const num = b.value
+                if (myLibrary[num].read === 'read') myLibrary[num].read = 'unread'
+                else if (myLibrary[num].read === 'unread') myLibrary[num].read = 'read'
+                localStorage.setItem('books', JSON.stringify(myLibrary))
+            }
+            loadBooks()
+        })
     }
 })
 

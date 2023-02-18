@@ -95,7 +95,7 @@ button:hover {
     box-shadow: 0 15px 13px rgba(0, 0, 0, .2) ;
 }
 .card:hover {
-    animation: move 1s;
+    animation: move .5s;
 }
 .card h3 {
     font-style: italic;
@@ -109,8 +109,8 @@ button:hover {
     grid-template-rows: 1fr 1fr 1fr 1fr;
 }
 
-.remove {
-    width: 50%;
+.remove, .update {
+    width: 100%;
     height: 40px;
     border-radius: 15px;
     border: 0;
@@ -158,4 +158,11 @@ button {
 #err {
     color: #b91c1c;
     font-size: 1.2rem;
+}
+
+.holder {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    width: 80%;
 }
