@@ -167,3 +167,11 @@ button {
     justify-content: space-between;
     width: 80%;
 }
+
+img[src="books.png"] {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: 40%;
+    z-index: -1;
+}
