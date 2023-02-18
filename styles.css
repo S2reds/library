@@ -19,6 +19,7 @@ body {
     grid-template-rows: .5fr  .1fr .5fr 1fr;
     justify-items: center;
     align-items: center;
+    box-shadow: 10px 0px 13px rgba(0, 0, 0, .2) ;
 }
 
 .sidebar > #sidemain { 
@@ -123,7 +124,7 @@ button:hover {
 
 
 #removeButton {
-    width: 80%;
+    width: 70%;
     align-self: baseline;
     height: 3vh;
     border-radius: 10px;
