@@ -52,13 +52,13 @@
         // Grab Form Data
         submit.addEventListener('click', (e) => {
             event.preventDefault();
-            formControl();
+            new formControl().form;
         })
         //remove books
         let clear = document.querySelector('#removeButton')
         clear.addEventListener('click', () => {
             localStorage.clear()
-            loadBooks()
+            new loadBooks().load()
         })
     </script>
 </body>
