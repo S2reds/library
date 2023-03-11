@@ -29,6 +29,7 @@ class formControl {
             document.querySelector('#bookname').value = ''
             document.querySelector('#author').value = ''
             document.querySelector('#pages').value = ''
+            document.querySelector('#read').value = 'Choose an option'
             err.innerHTML = ''
         }
     }

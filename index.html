@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js" defer></script>
+    <script src="validate.js" defer></script>
     <link rel="stylesheet" href="styles.css">
     <title>Library</title>
 </head>
@@ -23,11 +24,12 @@
                     <label for="pages"># of Pages</label>
                     <input type="number" name="pages" id="pages" min="10" max="1000">
                     <label for="read">Did you read it?</label>
-                    <select name="read" id="read">
+                    <select name="read" id="read" required>
+                        <option disabled selected value="choose">Choose an option</option>
                         <option value="read">Read</option>
                         <option value="unread">Not Read</option>
                     </select>
-                    <button id="submit" tpye="submit">Submit</button>
+                    <button id="submit" type="submit">Submit</button>
                 </form>
             </div>
         </div>
@@ -40,7 +42,7 @@
     <script>
         const ADD = document.querySelector('.collapse')
         const content = document.querySelector('.form')
-        const form = document.querySelector('#form')
+        // const form = document.querySelector('#form')
         const submit = document.querySelector('#submit')
         ADD.addEventListener('click', (e) => { 
             ADD.classList.toggle("active");
@@ -50,10 +52,10 @@
             else content.style.display = 'block';
         })
         // Grab Form Data
-        submit.addEventListener('click', (e) => {
-            event.preventDefault();
-            new formControl().form;
-        })
+        // submit.addEventListener('click', (e) => {
+        //     event.preventDefault();
+        //     new formControl().form;
+        // })
         //remove books
         let clear = document.querySelector('#removeButton')
         clear.addEventListener('click', () => {
