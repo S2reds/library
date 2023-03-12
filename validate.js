@@ -17,4 +17,6 @@ form.addEventListener('submit', e => {
 function showError() {
     if (book.validity.tooShort) book.setCustomValidity('TOO SHORT')
     else if (author.validity.tooShort) author.setCustomValidity('TOO SHORT')
+    else if (pages.validity.rangeOverflow) pages.setCustomValidity('TOO MANY')
+    else if (!read.validity.valid) read.setCustomValidity('PLEASE CHOOSE AN OPTION')
 }
